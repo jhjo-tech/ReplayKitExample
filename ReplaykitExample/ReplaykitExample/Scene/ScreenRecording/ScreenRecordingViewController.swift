@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 class ScreenRecordingViewController: UIViewController {
     
@@ -26,6 +27,7 @@ class ScreenRecordingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getPhotoLibraryAuthorization()
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             guard let self = self else { return }
             guard var second = Int(self.secondLabel.text ?? "0") else { return }
@@ -45,5 +47,14 @@ class ScreenRecordingViewController: UIViewController {
         }
     }
     
+}
+
+extension ScreenRecordingViewController {
+    
+    private func getPhotoLibraryAuthorization() {
+        PHPhotoLibrary.requestAuthorization { state in
+            print(state)
+        }
+    }
 }
 
