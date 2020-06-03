@@ -50,7 +50,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTl-LQ-Naz">
-                                <rect key="frame" x="132" y="300" width="150" height="40"/>
+                                <rect key="frame" x="132" y="320" width="150" height="40"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ByK-o9-aN8"/>
@@ -63,13 +63,21 @@
                                     <action selector="tapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oZn-bK-kQ5"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="su3-fY-c3K">
+                                <rect key="frame" x="117.5" y="796" width="179" height="36"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="30"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cMS-Sd-rcW" firstAttribute="top" secondItem="7Kc-tg-rX1" secondAttribute="bottom" constant="30" id="2hD-QX-1QT"/>
-                            <constraint firstItem="uTl-LQ-Naz" firstAttribute="top" secondItem="cMS-Sd-rcW" secondAttribute="bottom" constant="30" id="7HW-X7-xV6"/>
+                            <constraint firstItem="uTl-LQ-Naz" firstAttribute="top" secondItem="cMS-Sd-rcW" secondAttribute="bottom" constant="50" id="7HW-X7-xV6"/>
                             <constraint firstItem="cMS-Sd-rcW" firstAttribute="centerX" secondItem="7Kc-tg-rX1" secondAttribute="centerX" id="9Zh-8M-2hw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="su3-fY-c3K" secondAttribute="bottom" constant="30" id="GKk-Kx-y4a"/>
                             <constraint firstItem="uTl-LQ-Naz" firstAttribute="centerX" secondItem="cMS-Sd-rcW" secondAttribute="centerX" id="IDJ-qD-s6q"/>
+                            <constraint firstItem="su3-fY-c3K" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="acE-ge-gDJ"/>
                             <constraint firstItem="TfO-ly-79A" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="dGQ-lj-sej"/>
                             <constraint firstItem="7Kc-tg-rX1" firstAttribute="centerX" secondItem="TfO-ly-79A" secondAttribute="centerX" id="fJ3-Ag-Bx9"/>
                             <constraint firstItem="7Kc-tg-rX1" firstAttribute="top" secondItem="TfO-ly-79A" secondAttribute="bottom" constant="50" id="kZW-8w-HS8"/>
@@ -78,6 +86,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="currentStateLabel" destination="su3-fY-c3K" id="gSV-Zo-fC8"/>
                         <outlet property="secondLabel" destination="TfO-ly-79A" id="7uI-m0-bip"/>
                     </connections>
                 </viewController>

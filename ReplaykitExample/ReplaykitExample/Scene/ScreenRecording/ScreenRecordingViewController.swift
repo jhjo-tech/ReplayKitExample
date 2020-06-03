@@ -22,9 +22,11 @@ class ScreenRecordingViewController: UIViewController {
     }
     
     @IBOutlet private weak var secondLabel: UILabel!
+    @IBOutlet private weak var currentStateLabel: UILabel!
     
     private let screenRecordingManager = ScreenRecordingManager.shared
     private var timer: Timer?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,16 @@ class ScreenRecordingViewController: UIViewController {
             guard var second = Int(self.secondLabel.text ?? "0") else { return }
             second += 1
             self.secondLabel.text = String(second)
+        }
+        
+        screenRecordingManager.currentStateHandler = { [weak self] state in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.currentStateLabel.text = state.rawValue
+                if state == .completed, (self.timer?.isValid ?? false) {
+                    self.timer?.invalidate()
+                }
+            }
         }
     }
     

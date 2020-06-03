@@ -9,6 +9,16 @@
 import ReplayKit
 import Photos
 
+extension ScreenRecordingManager {
+    enum State: String {
+        case start
+        case recroding
+        case stop
+        case saveVideo
+        case completed
+    }
+}
+
 class ScreenRecordingManager {
     static let shared = ScreenRecordingManager()
     
@@ -20,12 +30,27 @@ class ScreenRecordingManager {
     private var videoInput: AVAssetWriterInput?
     private var audioMicInput: AVAssetWriterInput?
     private var audioAppInput: AVAssetWriterInput?
+    private var currentState: State = .start {
+        didSet {
+            currentStateHandler?(self.currentState)
+        }
+    }
+    
+    var startCompletedHandler: ((Error?) -> Void)?
+    var currentStateHandler: ((State) -> Void)?
 }
 
-
+// MARK: - setup
 extension ScreenRecordingManager {
+    
     func setupRecorder() {
         print(#function)
+        if currentState == .recroding {
+            self.stopCapture()
+        }
+        
+        self.currentState = .start
+        
         screenRecorder.isMicrophoneEnabled = true
         setupVideoAssetWriter()
     }
@@ -121,8 +146,8 @@ extension ScreenRecordingManager {
             default: break
                 
             }
-        }, completionHandler: { error in
-            guard error != nil else { return }
+        }, completionHandler: { [weak self] error in
+            self?.startCompletedHandler?(error)
         })
     }
     
@@ -132,21 +157,24 @@ extension ScreenRecordingManager {
         guard writer.startWriting() else { return }
         let cmTime = CMSampleBufferGetPresentationTimeStamp(sample)
         self.assetWriter?.startSession(atSourceTime: cmTime)
+        self.currentState = .recroding
     }
 }
 
 extension ScreenRecordingManager {
-    private func stop() {
+    private func stopCapture() {
         print(#function)
         screenRecorder.stopCapture { error in
             guard error != nil else { return }
-            
+            self.currentState = .recroding
         }
+        
+        self.currentState = .stop
     }
     
     func stopRecording() {
         print(#function)
-        stop()
+        stopCapture()
         guard let path = videoSavedPath else { return }
         guard assetWriter?.status != .unknown else { return }
         videoInput?.markAsFinished()
@@ -154,6 +182,7 @@ extension ScreenRecordingManager {
         audioMicInput?.markAsFinished()
         
         assetWriter?.finishWriting { [weak self] in
+            self?.currentState = .saveVideo
             self?.saveVideo(path)
         }
     }
@@ -164,6 +193,7 @@ extension ScreenRecordingManager {
         }) { (isSaved, error) in
             if isSaved {
                 print(" Success Save Vodeo")
+                self.currentState = .completed
             }
             
             if let error = error {
