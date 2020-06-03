@@ -69,6 +69,20 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lef-h0-wt7">
+                                <rect key="frame" x="157" y="596" width="100" height="100"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="PRo-BU-SSw"/>
+                                    <constraint firstAttribute="width" constant="100" id="PaF-C1-eKZ"/>
+                                </constraints>
+                                <state key="normal" title="Audio Start">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ddH-CR-a2j"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -77,6 +91,8 @@
                             <constraint firstItem="cMS-Sd-rcW" firstAttribute="centerX" secondItem="7Kc-tg-rX1" secondAttribute="centerX" id="9Zh-8M-2hw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="su3-fY-c3K" secondAttribute="bottom" constant="30" id="GKk-Kx-y4a"/>
                             <constraint firstItem="uTl-LQ-Naz" firstAttribute="centerX" secondItem="cMS-Sd-rcW" secondAttribute="centerX" id="IDJ-qD-s6q"/>
+                            <constraint firstItem="Lef-h0-wt7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RJN-mj-Oa9"/>
+                            <constraint firstItem="su3-fY-c3K" firstAttribute="top" secondItem="Lef-h0-wt7" secondAttribute="bottom" constant="100" id="ac7-DO-q1D"/>
                             <constraint firstItem="su3-fY-c3K" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="acE-ge-gDJ"/>
                             <constraint firstItem="TfO-ly-79A" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="dGQ-lj-sej"/>
                             <constraint firstItem="7Kc-tg-rX1" firstAttribute="centerX" secondItem="TfO-ly-79A" secondAttribute="centerX" id="fJ3-Ag-Bx9"/>

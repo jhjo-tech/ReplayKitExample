@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		598F78682487E824006736E4 /* Sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 598F78672487E12C006736E4 /* Sound.m4a */; };
 		686DE6F224874EDA005AAEBC /* ScreenRecordingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686DE6F124874EDA005AAEBC /* ScreenRecordingManager.swift */; };
 		686DE6F524875614005AAEBC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686DE6F424875614005AAEBC /* String.swift */; };
 		686E8C842485FFD800835443 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686E8C832485FFD800835443 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		598F78672487E12C006736E4 /* Sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sound.m4a; sourceTree = "<group>"; };
 		686DE6F124874EDA005AAEBC /* ScreenRecordingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRecordingManager.swift; sourceTree = "<group>"; };
 		686DE6F424875614005AAEBC /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		686E8C802485FFD800835443 /* ReplaykitExmaple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReplaykitExmaple.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,11 +70,12 @@
 		686E8C822485FFD800835443 /* ReplaykitExample */ = {
 			isa = PBXGroup;
 			children = (
+				598F78672487E12C006736E4 /* Sound.m4a */,
+				686E8C912485FFDA00835443 /* Info.plist */,
 				686DE6F32487560D005AAEBC /* Extension */,
 				686E8C992486000A00835443 /* Scene */,
 				686E8C982485FFFA00835443 /* Resoruce */,
 				686E8C972485FFED00835443 /* AppDelegate */,
-				686E8C912485FFDA00835443 /* Info.plist */,
 			);
 			path = ReplaykitExample;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			files = (
 				686E8C902485FFDA00835443 /* LaunchScreen.storyboard in Resources */,
 				686E8C8D2485FFDA00835443 /* Assets.xcassets in Resources */,
+				598F78682487E824006736E4 /* Sound.m4a in Resources */,
 				686E8C8B2485FFD800835443 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
