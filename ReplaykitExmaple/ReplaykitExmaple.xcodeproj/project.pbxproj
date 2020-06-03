@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		686DE6F224874EDA005AAEBC /* ScreenRecordingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686DE6F124874EDA005AAEBC /* ScreenRecordingManager.swift */; };
+		686DE6F524875614005AAEBC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686DE6F424875614005AAEBC /* String.swift */; };
 		686E8C842485FFD800835443 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686E8C832485FFD800835443 /* AppDelegate.swift */; };
 		686E8C862485FFD800835443 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686E8C852485FFD800835443 /* SceneDelegate.swift */; };
 		686E8C882485FFD800835443 /* ScreenRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686E8C872485FFD800835443 /* ScreenRecordingViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		686DE6F124874EDA005AAEBC /* ScreenRecordingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRecordingManager.swift; sourceTree = "<group>"; };
+		686DE6F424875614005AAEBC /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		686E8C802485FFD800835443 /* ReplaykitExmaple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReplaykitExmaple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		686E8C832485FFD800835443 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		686E8C852485FFD800835443 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		686DE6F32487560D005AAEBC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				686DE6F424875614005AAEBC /* String.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		686E8C772485FFD800835443 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +68,7 @@
 		686E8C822485FFD800835443 /* ReplaykitExmaple */ = {
 			isa = PBXGroup;
 			children = (
+				686DE6F32487560D005AAEBC /* Extension */,
 				686E8C992486000A00835443 /* Scene */,
 				686E8C982485FFFA00835443 /* Resoruce */,
 				686E8C972485FFED00835443 /* AppDelegate */,
@@ -95,6 +108,7 @@
 			children = (
 				686E8C892485FFD800835443 /* Main.storyboard */,
 				686E8C872485FFD800835443 /* ScreenRecordingViewController.swift */,
+				686DE6F124874EDA005AAEBC /* ScreenRecordingManager.swift */,
 			);
 			path = ScreenRecording;
 			sourceTree = "<group>";
@@ -171,6 +185,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				686E8C882485FFD800835443 /* ScreenRecordingViewController.swift in Sources */,
+				686DE6F224874EDA005AAEBC /* ScreenRecordingManager.swift in Sources */,
+				686DE6F524875614005AAEBC /* String.swift in Sources */,
 				686E8C842485FFD800835443 /* AppDelegate.swift in Sources */,
 				686E8C862485FFD800835443 /* SceneDelegate.swift in Sources */,
 			);

@@ -15,22 +15,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEX-Fn-psO">
-                                <rect key="frame" x="202" y="448" width="10" height="10"/>
-                                <color key="backgroundColor" red="0.058823529411764705" green="0.29803921568627451" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Kc-tg-rX1">
+                                <rect key="frame" x="132" y="160" width="150" height="40"/>
+                                <color key="backgroundColor" red="0.058823529409999999" green="0.29803921570000003" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="10" id="ktR-K9-jce"/>
-                                    <constraint firstAttribute="width" constant="10" id="mfX-Lr-Oih"/>
+                                    <constraint firstAttribute="width" constant="150" id="Tvx-ba-Mxb"/>
+                                    <constraint firstAttribute="height" constant="40" id="aA6-d2-gzc"/>
                                 </constraints>
-                            </view>
+                                <state key="normal" title="Recording Start">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TKP-xK-39o"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMS-Sd-rcW">
+                                <rect key="frame" x="132" y="230" width="150" height="40"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ccs-z1-iRW"/>
+                                    <constraint firstAttribute="width" constant="150" id="zN0-V7-DNF"/>
+                                </constraints>
+                                <state key="normal" title="Recording Stop">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xO2-8f-PZ4"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfO-ly-79A">
+                                <rect key="frame" x="197.5" y="74" width="19.5" height="36"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="30"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTl-LQ-Naz">
+                                <rect key="frame" x="132" y="300" width="150" height="40"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ByK-o9-aN8"/>
+                                    <constraint firstAttribute="width" constant="150" id="XC2-M1-qer"/>
+                                </constraints>
+                                <state key="normal" title="Recording Pause">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oZn-bK-kQ5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dEX-Fn-psO" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="oGm-Wu-3cL"/>
-                            <constraint firstItem="dEX-Fn-psO" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wEM-fT-qXc"/>
+                            <constraint firstItem="cMS-Sd-rcW" firstAttribute="top" secondItem="7Kc-tg-rX1" secondAttribute="bottom" constant="30" id="2hD-QX-1QT"/>
+                            <constraint firstItem="uTl-LQ-Naz" firstAttribute="top" secondItem="cMS-Sd-rcW" secondAttribute="bottom" constant="30" id="7HW-X7-xV6"/>
+                            <constraint firstItem="cMS-Sd-rcW" firstAttribute="centerX" secondItem="7Kc-tg-rX1" secondAttribute="centerX" id="9Zh-8M-2hw"/>
+                            <constraint firstItem="uTl-LQ-Naz" firstAttribute="centerX" secondItem="cMS-Sd-rcW" secondAttribute="centerX" id="IDJ-qD-s6q"/>
+                            <constraint firstItem="TfO-ly-79A" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="dGQ-lj-sej"/>
+                            <constraint firstItem="7Kc-tg-rX1" firstAttribute="centerX" secondItem="TfO-ly-79A" secondAttribute="centerX" id="fJ3-Ag-Bx9"/>
+                            <constraint firstItem="7Kc-tg-rX1" firstAttribute="top" secondItem="TfO-ly-79A" secondAttribute="bottom" constant="50" id="kZW-8w-HS8"/>
+                            <constraint firstItem="TfO-ly-79A" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="lIE-m2-RhF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="secondLabel" destination="TfO-ly-79A" id="7uI-m0-bip"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
