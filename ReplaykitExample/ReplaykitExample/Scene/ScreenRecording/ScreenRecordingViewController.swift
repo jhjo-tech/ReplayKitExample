@@ -23,30 +23,33 @@ class ScreenRecordingViewController: UIViewController {
     
     @IBOutlet private weak var secondLabel: UILabel!
     
+    private let screenRecordingManager = ScreenRecordingManager.shared
     private var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getPhotoLibraryAuthorization()
-        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             guard let self = self else { return }
             guard var second = Int(self.secondLabel.text ?? "0") else { return }
             second += 1
             self.secondLabel.text = String(second)
         }
-        
     }
     
     @IBAction func tapButton(_ sender: UIButton) {
         guard let type = ButtonTyep(rawValue: sender.tag) else { return }
         
         switch type {
-        case .start: break
+        case .start:
+            screenRecordingManager.setupRecorder()
+            screenRecordingManager.start()
         case .pause: break
-        case .stop: break
+        case .stop:
+            screenRecordingManager.stopRecording()
         }
     }
-    
 }
 
 extension ScreenRecordingViewController {
@@ -57,4 +60,3 @@ extension ScreenRecordingViewController {
         }
     }
 }
-

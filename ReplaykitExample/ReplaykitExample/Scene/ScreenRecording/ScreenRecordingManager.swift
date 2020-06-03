@@ -7,33 +7,31 @@
 //
 
 import ReplayKit
+import Photos
 
 class ScreenRecordingManager {
     static let shared = ScreenRecordingManager()
     
     private var docuementPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    
     private let screenRecorder = RPScreenRecorder.shared()
     
     private var videoSavedPath: URL?
-    
     private var assetWriter: AVAssetWriter?
     private var videoInput: AVAssetWriterInput?
     private var audioMicInput: AVAssetWriterInput?
     private var audioAppInput: AVAssetWriterInput?
-    
-    
 }
 
 
 extension ScreenRecordingManager {
     func setupRecorder() {
-        if screenRecorder.isRecording {
-            
-        }
+        print(#function)
+        screenRecorder.isMicrophoneEnabled = true
+        setupVideoAssetWriter()
     }
     
     private func setupVideoAssetWriter() {
+        print(#function)
         videoSavedPath = createPath(to: "mp4")
         
         guard let path = videoSavedPath else { print("Error : Empty Paath"); return }
@@ -102,7 +100,77 @@ extension ScreenRecordingManager {
 
 
 extension ScreenRecordingManager {
+    func start() {
+        print(#function)
+        screenRecorder.startCapture(handler: { [weak self] (cmSampleBuffer, sampleType, error) in
+            guard let self = self else { return }
+            guard error == nil else { return }
+            
+            self.startSession(cmSampleBuffer, type: sampleType)
+  
+            switch sampleType {
+            case .video:
+                guard self.videoInput?.isReadyForMoreMediaData ?? false else { return }
+                self.videoInput?.append(cmSampleBuffer)
+            case .audioMic:
+                guard self.audioMicInput?.isReadyForMoreMediaData ?? false else { return }
+                self.audioMicInput?.append(cmSampleBuffer)
+            case .audioApp:
+                guard self.audioAppInput?.isReadyForMoreMediaData ?? false else { return }
+                self.audioAppInput?.append(cmSampleBuffer)
+            default: break
+                
+            }
+        }, completionHandler: { error in
+            guard error != nil else { return }
+        })
+    }
     
+    private func startSession(_ sample: CMSampleBuffer, type: RPSampleBufferType) {
+        guard let writer = self.assetWriter else { return }
+        guard type == .video, writer.status == .unknown else { return }
+        guard writer.startWriting() else { return }
+        let cmTime = CMSampleBufferGetPresentationTimeStamp(sample)
+        self.assetWriter?.startSession(atSourceTime: cmTime)
+    }
+}
+
+extension ScreenRecordingManager {
+    private func stop() {
+        print(#function)
+        screenRecorder.stopCapture { error in
+            guard error != nil else { return }
+            
+        }
+    }
+    
+    func stopRecording() {
+        print(#function)
+        stop()
+        guard let path = videoSavedPath else { return }
+        guard assetWriter?.status != .unknown else { return }
+        videoInput?.markAsFinished()
+        audioAppInput?.markAsFinished()
+        audioMicInput?.markAsFinished()
+        
+        assetWriter?.finishWriting { [weak self] in
+            self?.saveVideo(path)
+        }
+    }
+    
+    private func saveVideo(_ videoPath: URL) {
+        PHPhotoLibrary.shared().performChanges({
+            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: videoPath)
+        }) { (isSaved, error) in
+            if isSaved {
+                print(" Success Save Vodeo")
+            }
+            
+            if let error = error {
+                print(" Save Error : \(error)")
+            }
+        }
+    }
 }
 
 extension ScreenRecordingManager {
