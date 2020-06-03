@@ -52,7 +52,7 @@
 		686E8C772485FFD800835443 = {
 			isa = PBXGroup;
 			children = (
-				686E8C822485FFD800835443 /* ReplaykitExmaple */,
+				686E8C822485FFD800835443 /* ReplaykitExample */,
 				686E8C812485FFD800835443 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,7 +65,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		686E8C822485FFD800835443 /* ReplaykitExmaple */ = {
+		686E8C822485FFD800835443 /* ReplaykitExample */ = {
 			isa = PBXGroup;
 			children = (
 				686DE6F32487560D005AAEBC /* Extension */,
@@ -74,7 +74,7 @@
 				686E8C972485FFED00835443 /* AppDelegate */,
 				686E8C912485FFDA00835443 /* Info.plist */,
 			);
-			path = ReplaykitExmaple;
+			path = ReplaykitExample;
 			sourceTree = "<group>";
 		};
 		686E8C972485FFED00835443 /* AppDelegate */ = {
@@ -148,7 +148,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 686E8C7B2485FFD800835443 /* Build configuration list for PBXProject "ReplaykitExmaple" */;
+			buildConfigurationList = 686E8C7B2485FFD800835443 /* Build configuration list for PBXProject "ReplaykitExample" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -334,13 +334,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LY4A66983H;
-				INFOPLIST_FILE = ReplaykitExmaple/Info.plist;
+				INFOPLIST_FILE = ReplaykitExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jhjo.tech.ReplaykitExmaple;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jhjo.tech.ReplaykitExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -353,13 +353,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LY4A66983H;
-				INFOPLIST_FILE = ReplaykitExmaple/Info.plist;
+				INFOPLIST_FILE = ReplaykitExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jhjo.tech.ReplaykitExmaple;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jhjo.tech.ReplaykitExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -369,7 +369,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		686E8C7B2485FFD800835443 /* Build configuration list for PBXProject "ReplaykitExmaple" */ = {
+		686E8C7B2485FFD800835443 /* Build configuration list for PBXProject "ReplaykitExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				686E8C922485FFDA00835443 /* Debug */,
